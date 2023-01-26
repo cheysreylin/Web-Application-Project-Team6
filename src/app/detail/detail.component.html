@@ -1,0 +1,276 @@
+<style>
+    h1{
+        
+        font-weight: 600;
+        font-size: 36px;
+        text-align: center;
+        /*border: 1px solid; */
+        padding: 10px 0;
+        background-color: #EDF0F4;
+        color: #31516D;
+    }
+    
+    .detail {
+        padding-top: 3vw;
+        display: flex;
+        justify-content: space-between;
+    }
+    .left{
+        width:20%;
+    }
+
+    .left .image img{
+        width: 100%;
+        
+    }
+
+    .left .image .sm-img-col {
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    .left .image .sm-img-col img,
+    .left .image img {
+        border-radius: 10px;
+        height: 100%;
+    }
+
+    .left .image .sm-img-col .sm-img {
+        flex-basis: 48%;
+    }
+
+    .authordetail {
+        margin-top: 5vh;
+        color: #31516D;
+    }
+
+    .left .author {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .left .author img {
+        height: 5vh;
+        border-radius: 50%;
+    }
+
+    .left .author h2 {
+        margin-left: 2vh;
+        
+        font-size: 2vh;
+    }
+    .right{
+        width: 70%;
+    }
+    .right h1{
+        background-color: #fff;
+        text-align: start;
+    }
+    .rate,
+    .rating,
+    
+    p {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .star{
+        display: flex;
+    }
+    .star i {
+        margin-right: 10px;
+        font-size:3vh;
+        color: rgb(243, 181, 25);
+    }
+
+    .rating p {
+        margin-top: 1vh;
+        padding-left: 2vh;
+        font-size: 2vh;
+    }
+    .sale{
+        display: flex;
+        align-items: center;
+        margin-top: 1vh;
+        margin-left: 1vh;
+    }
+
+    .sale p {
+        margin-right: 20px;
+        font-size: 18px;
+        align-items: center;
+    }
+
+    .sale p span {
+        margin-left: 5px;
+        margin-top: 0.5vh;
+
+    }
+    .price{
+        display: flex;
+        align-items: center;
+        margin: 3vh 0;
+    }
+    .price input{
+        width: 6vh;
+        padding: 1vh ;
+    }
+    .right h3{
+        font-size: 40px;
+    }
+    .price .btn{
+        background-color: #31516D;
+        color: #fff;
+        margin-left: 2vh;
+    }
+    .discription,.p-detail, .totalprice, .review {
+        margin-top: 2vh;
+    }
+    .discription div,.p-detail div, .totalprice div, .review .g-re{
+        border-top: 2px solid #31516D;
+        padding-top: 1vh;
+    }
+    .review .user{
+        display: flex;
+        align-items: center;
+        margin-bottom: 1vh;
+    }
+    .review .user img{
+        height: 6vh;
+        margin-right: 2vh;
+    }
+    .review .s-re{
+        padding-top: 1vh;
+        border-bottom: 1px solid #5583ac;
+    }
+    .recomm{
+        background-color: #EDF0F4;
+    }
+    
+    @media (max-width:500px){
+        .detail{
+            display: flex;
+            flex-direction: column;
+        }
+        .left{
+            width:100%;
+            padding: 0 2vh;
+        }
+        .right{
+            width: 100%;
+            padding: 2vh;
+        }
+    }
+</style>
+<h1>Details</h1>
+<div class="container" *ngIf="selectedBook">
+    <div class="detail">
+        <div class="left">
+            <div class="image">
+                <img id="mainimage" src="{{bookImage}}" width="100%" alt="">
+                <div class="sm-img-col" >
+                    <div class="sm-img" ><img (click)="changeImg(selectedBook.bookcover.img1)" class="sm-image" src="{{selectedBook.bookcover.img1}}" width="100%"
+                            alt=""></div>
+                    <div class="sm-img" ><img (click)="changeImg(selectedBook.bookcover.img2)" class="sm-image" src="{{selectedBook.bookcover.img2}}" width="100%"
+                            alt=""></div>
+                </div>
+                <!-- <img [src] = "mainimge"/> -->
+            </div>
+            <div class="authordetail">
+                <h5>Writen by:</h5>
+                <div class="author">
+                    <img src="{{selectedBook.authorP}}" alt="">
+                    <h2>{{selectedBook.author}}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <h1>{{selectedBook.title}}</h1>
+            <div class="rate">
+                <div class="rating">
+                    <div class="star">
+                        <i class="fa-solid fa-star"></i>
+                        <h4>{{selectedBook.critic}}</h4>
+                    </div>
+                    <p>Review: <span>{{selectedBook.numberOfReview}}</span></p>
+                </div>
+                <div class="sale" [ngSwitch]="selectedBook.availibilty">
+                    <p>Sales: <span>
+                            <h5>{{selectedBook.sale}}</h5>
+                        </span></p>
+                    <p>Availibilty: <span>
+                            <h5 *ngSwitchCase="true">In Stock</h5>
+                            <h5 *ngSwitchCase="false">Out of Stock</h5>
+                        </span></p>
+                </div>
+            </div>
+            <h3><span>{{selectedBook.price | currency}}</span></h3>
+            <div class="price">
+                <input type="Number" value="1">
+                <button class="btn">Buy Now</button>
+                <button class="btn"><i class="fa-solid fa-bag-shopping"></i></button>
+            </div>
+            
+            <h6>Genre: <span>{{selectedBook.genre}}</span></h6>
+            <div class="discription">
+                <h6>Description</h6>
+                <div>{{selectedBook.description}}</div>
+            </div>
+            <div class="p-detail">
+                <h6>Product Details</h6>
+                <div *ngIf="selectedBook.proDetail">
+                    <p>Print Length: <span><b>{{selectedBook.proDetail.printlength}} Pages</b></span></p>
+                    <p>Language: <span><b>{{selectedBook.proDetail.language}}</b></span></p>
+                    <p>Publisher: <span><b>{{selectedBook.proDetail.publisher}}</b></span></p>
+                    <p>Publication Date: <span><b>{{selectedBook.proDetail.pubDate | date : 'dd MMM yyyy'}}</b></span></p>
+                    <p>Dimension: <span><b>{{selectedBook.proDetail.dimension}}</b></span></p>
+                    <p>Item Weigth: <span><b>{{selectedBook.proDetail.itemW}} Ounce</b></span></p>
+                </div>
+                <div *ngIf="!selectedBook.proDetail">
+                    <p>Print Length: <span><b>NA</b></span></p>
+                    <p>Language: <span><b>NA</b></span></p>
+                    <p>Publisher: <span><b>NA</b></span></p>
+                    <p>Publication Date: <span><b>NA</b></span></p>
+                    <p>Dimension: <span><b>NA</b></span></p>
+                    <p>Item Weigth: <span><b>NA</b></span></p>
+                </div>
+            </div>
+            <div class="totalprice">
+                <h6>Price</h6>
+                <div>
+                    <p>Cost: <b>{{selectedBook.cost | currency}}</b></p>
+                    <p>Tax: <b>{{selectedBook.tax | currency}}</b></p>
+                    <p>Total: <b>{{selectedBook.cost + selectedBook.tax | currency}}</b></p>
+                </div>
+            </div>
+            <div class="review" >
+                <h6>Review</h6>
+                <div class="g-re" >
+                    <div class="s-re" *ngFor="let review of reviews">
+                        <div class="user">
+                            <img src="{{review.userP}}" alt="">
+                            <h6>{{review.username}}</h6>
+                        </div>
+                        <p>{{review.review}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h5 style="margin: 2vh;">Recommendation</h5>
+</div>
+    <lw-recommendation [books]="books" (selectedBook)="selectBook($event)"></lw-recommendation>
+
+
+
+<script>
+    var mainimg = document.getElementById("mainimage");
+    var smallimg = document.getElementsByClassName("sm-image");
+
+    smallimg[1].onclick = function () {
+        mainimg.src = smallimg[1].src;
+    }
+</script>

@@ -1,0 +1,116 @@
+<style>
+    nav{
+        padding: 0 2vh;
+        align-items: center;
+        display: flex;
+        
+    }
+    nav .navdetail{
+        width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+    nav .navdetail .form{
+        display: flex;
+    }
+    nav .navdetail .form .btn{
+        background-color: #31516D;
+        color: #fff;
+        border-color: #31516D;
+    }
+    nav .navdetail .collapse{
+        width: 40%;
+        justify-content: space-between;
+    }
+    nav .logo{
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+    .logo img{
+        height: 3vh;
+        margin-right: 2vh;
+    }
+    .iconmanu ul{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 2vh;
+    }
+    .iconmanu ul li{
+        list-style: none;
+        font-size: 2vh;
+        padding-right: 2vh;
+        position: relative;
+        color: #31516D;
+    }
+    a{
+        color: #31516D;
+    }
+    .profile{
+        display: flex;
+        align-items: center;
+    }
+    .profile img{
+        margin-right: 2vh;
+    }
+
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand logo" href="#">
+        <img src="assets\img\Logo\Lostworld Linear.png" alt="">
+        <h5>Lostworld</h5>
+    </a>
+    <div class="navdetail" [ngSwitch]="getScreenWidth">
+        <div class="iconmanu" *ngSwitchCase="getScreenWidth >= 990">
+        <ul >        
+            <li><a href="#" class="icon"><i class="fa-regular fa-circle-user"></i></a></li>
+            <li><a href="#" class="icon"><i class="fa-solid fa-gear"></i></a></li>
+            <li><a href="#" class="icon"><i class="fa-solid fa-cart-shopping"></i></a></li>
+        </ul>
+    </div>
+    <button (click)="togglemanu()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active" *ngSwitchCase="getScreenWidth <= 990">
+          <div class="profile"> 
+            <img src="" alt="">
+            <h5>Username</h5>
+          </div>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Featured <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Popular</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">New</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+        <li class="nav-item" *ngSwitchCase="getScreenWidth <= 990">
+          <a class="nav-link" href="#">Setting</a>
+        </li>
+        <li class="nav-item" *ngSwitchCase="getScreenWidth <= 990">
+          <a class="nav-link" href="#">Cart</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0 form">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+    </div>
+    
+    
+  </nav>

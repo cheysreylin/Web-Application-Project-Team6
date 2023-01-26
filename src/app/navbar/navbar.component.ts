@@ -1,14 +1,15 @@
-import { Component, HostListener, Input } from '@angular/core';
-import { Books } from './books';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
-  selector: 'lw-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'lw-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
 })
-export class AppComponent {
-  title = 'Lost World Bookshop';
-  @Input() books: Books[] = [];
+export class NavbarComponent {
+  toggle:boolean = false;
+  togglemanu(){
+    this.toggle = !this.toggle;
+  }
   public getScreenWidth: any;
   public getScreenHeight: any;
   
