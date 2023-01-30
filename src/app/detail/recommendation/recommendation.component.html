@@ -3,55 +3,54 @@
     .group-card{
         display: flex;
         background-color: #EDF0F4;
+        padding: 5vh 40px;
     }
     .card img{
-        height: 30vh;
+        
+        border-radius: 10px;
+        margin-bottom: 1vh;
     }
-    .card .c-row{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    .card{
+        background-color: transparent;
+        overflow: hidden; 
+        border: none;
+        padding: 0;
     }
-    .star{
-        display: flex;
-        align-items: center;
+    .card-body{
+        
+        padding: 0;
     }
-    .star i{
-        font-size:2.5vh;
-        color: rgb(243, 181, 25);
+    
+    .card-body span, .card-body h5{
+        font-size: 15px;
     }
-    .star h5{
-        margin: 1vh;
-    }
+    
     .btn{
         background-color: #31516D;
         border: 0;
     }
     @media (max-width:500px){
-        .card img{
-            height: 20vh;
+        .group-card{
+            padding: 2vh 10px;
+            overflow-x: scroll;
         }
-        h5{
-            font-size: 15px;
+        .card-body{
+            padding: 0vh;
         }
+        span, h5{
+            font-size: 12px;
+            margin-right: 1vh;
+        }
+        
     }
 
 </style>
 
-<div class="group-card" style="padding: 5vh 0; padding-right: 5vh;">
-    <div class="card" style="width: 15rem; margin-left:5vh;" *ngFor="let book of books;" (click)="selectBook(book)">
+<div class="group-card">
+    <div class="card" style="width: 15rem; margin-left:5vh; " *ngFor="let book of books;" (click)="selectBook(book)">
         <img class="card-img-top image" src="{{book.bookcover.img1}}" alt="Card image cap">
         <div class="card-body">
             <span>{{book.genre}}</span>
             <h5 class="card-title">{{book.title}}</h5>
-            <div class="c-row">
-                <div class="star">
-                    <i class="fa-solid fa-star"></i>
-                    <h5>{{book.critic}}</h5>
-                </div>
-                <h5>{{book.price | currency}}</h5>
-            </div>
-        <a href="#" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></a>
-        </div>
     </div>
 </div>

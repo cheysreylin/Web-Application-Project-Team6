@@ -1,4 +1,6 @@
 import { Component, HostListener } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginPopupComponent } from '../login-popup/login-popup.component';
 
 @Component({
   selector: 'lw-navbar',
@@ -7,6 +9,9 @@ import { Component, HostListener } from '@angular/core';
 })
 export class NavbarComponent {
   toggle:boolean = false;
+  constructor(private dialog: MatDialog){
+  }
+
   togglemanu(){
     this.toggle = !this.toggle;
   }
@@ -22,5 +27,9 @@ export class NavbarComponent {
   onWindowResize() {
     this.getScreenWidth = window.innerWidth;
     this.getScreenHeight = window.innerHeight;
+  }
+  login() {
+    this.dialog.open(LoginPopupComponent);
+    console.log('click')
   }
 }

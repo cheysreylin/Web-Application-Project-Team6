@@ -1,0 +1,102 @@
+<style>
+    .container {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container h1 {
+        padding: 2rem;
+        background-color: #31516D;
+        color: #fff;
+        text-align: start;
+    }
+
+    .form {
+        margin: 0 4rem;
+    }
+
+    .form h2 {
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    .form h2 span a {
+        text-decoration: none;
+        color: #31516dc4;
+        font-size: 15px;
+
+    }
+
+    .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login {
+        width: 100%;
+        background-color: #31516d;
+        border: #31516D;
+        padding: 1vh 0;
+        color: #fff;
+        margin: 1rem 0;
+    }
+
+    a i {
+        font-size: 1.5rem;
+        align-items: center;
+        color: #31516D;
+        margin-right: 1vw;
+        margin-bottom: 10px;
+    }
+
+    h4 {
+        text-align: center;
+        color: #31516dc4;
+    }
+
+    .signup {
+        
+        padding: 1vh 0;
+        margin: 0 4rem;
+    }
+    .signup h4{
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+    }
+    .signup .btn{
+        width: 100%;
+    }
+</style>
+
+<div class="container">
+    <h1>LogIn</h1>
+    <div class="form">
+        <h2>Email:</h2>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+        </div>
+        <h2>Password: <span><a href="#">Forgot password?</a></span></h2>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+        </div>
+        <button type="button" class="btn btn-outline-secondary login">LogIn</button>
+
+    </div>
+    <h4>Or log in with</h4>
+    <div class="icon">
+        <a href="#"><i class="fa-brands fa-google"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+    <div class="signup">
+        <h4>Don't have an Account?</h4>
+        <button (click)="signup()" type="button" class="btn btn-outline-secondary" mat-dialog-close>Create New Account</button>
+    </div>
+
+</div>

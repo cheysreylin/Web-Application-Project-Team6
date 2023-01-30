@@ -1,36 +1,37 @@
 <style>
-    nav{
+    .navbar{
         padding: 0 2vh;
         align-items: center;
         display: flex;
+        position: sticky;
         
     }
-    nav .navdetail{
+    .navbar .navdetail{
         width: 100%;
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
     }
-    nav .navdetail .form{
+    .navbar .navdetail .form{
         display: flex;
     }
-    nav .navdetail .form .btn{
+    .navbar .navdetail .form .btn{
         background-color: #31516D;
         color: #fff;
         border-color: #31516D;
     }
-    nav .navdetail .collapse{
+    .navbar .navdetail .collapse{
         width: 40%;
         justify-content: space-between;
     }
-    nav .logo{
+    .navbar .logo{
         align-items: center;
         display: flex;
         justify-content: space-between;
     }
     .logo img{
-        height: 3vh;
-        margin-right: 2vh;
+        height: 4vh;
+       
     }
     .iconmanu ul{
         display: flex;
@@ -44,6 +45,7 @@
         padding-right: 2vh;
         position: relative;
         color: #31516D;
+        
     }
     a{
         color: #31516D;
@@ -60,13 +62,12 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand logo" href="#">
-        <img src="assets\img\Logo\Lostworld Linear.png" alt="">
-        <h5>Lostworld</h5>
+        <img src="assets\img\Logo\Icon.png" alt="">
     </a>
     <div class="navdetail" [ngSwitch]="getScreenWidth">
-        <div class="iconmanu" *ngSwitchCase="getScreenWidth >= 990">
+        <div class="iconmanu" >
         <ul >        
-            <li><a href="#" class="icon"><i class="fa-regular fa-circle-user"></i></a></li>
+            <li ><a href="#" class="icon" ><i class="fa-regular fa-circle-user"></i></a></li>
             <li><a href="#" class="icon"><i class="fa-solid fa-gear"></i></a></li>
             <li><a href="#" class="icon"><i class="fa-solid fa-cart-shopping"></i></a></li>
         </ul>
@@ -75,8 +76,8 @@
       <span class="navbar-toggler-icon"></span>
     </button>
   
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02" [ngSwitch]="getScreenWidth">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0" >
         <li class="nav-item active" *ngSwitchCase="getScreenWidth <= 990">
           <div class="profile"> 
             <img src="" alt="">
@@ -114,3 +115,5 @@
     
     
   </nav>
+
+ 

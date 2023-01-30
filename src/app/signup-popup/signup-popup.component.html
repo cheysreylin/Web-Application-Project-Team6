@@ -1,0 +1,138 @@
+<style>
+    .container {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container h1 {
+        padding: 2rem;
+        background-color: #31516D;
+        color: #fff;
+        text-align: start;
+    }
+
+    .form {
+        margin: 0 4rem;
+    }
+
+    .form h2 {
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    .form h2 span a {
+        text-decoration: none;
+        color: #31516dc4;
+        font-size: 15px;
+
+    }
+
+    .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login {
+        width: 100%;
+        background-color: #31516d;
+        border: #31516D;
+        padding: 1vh 0;
+        color: #fff;
+        margin: 1rem 0;
+    }
+
+    a i {
+        font-size: 1.5rem;
+        align-items: center;
+        color: #31516D;
+        margin-right: 1vw;
+        margin-bottom: 10px;
+    }
+
+    h4 {
+        text-align: center;
+        color: #31516dc4;
+    }
+
+    .signup {
+        
+        padding: 1vh 0;
+        margin: 0 4rem;
+    }
+    .signup h4{
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+    }
+    .signup .btn{
+        width: 100%;
+    }
+</style>
+
+<div class="container">
+    <h1>SignUp</h1>
+    <div class="form">
+        <form class="row g-3">
+            <div class="col-md-4">
+              <label for="validationDefault01" class="form-label">First name</label>
+              <input type="text" class="form-control" id="validationDefault01"  required>
+            </div>
+            <div class="col-md-4">
+              <label for="validationDefault02" class="form-label">Last name</label>
+              <input type="text" class="form-control" id="validationDefault02"  required>
+            </div>
+            
+            <div class="col-md-4">
+              <label for="validationDefaultUsername" class="form-label">Username</label>
+              <div class="input-group">
+                <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                <input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
+              </div>
+            </div>
+            <div class="col-md-12">
+                <label for="validationDefault05" class="form-label">Email</label>
+                <input type="email" class="form-control" id="validationDefault05" required>
+              </div>
+              <div class="col-md-12">
+                <label for="validationDefault05" class="form-label">Password</label>
+                <input type="password" class="form-control" id="validationDefault05" required>
+              </div>
+            <div class="col-md-6">
+              <label for="validationDefault03" class="form-label">District</label>
+              <input type="text" class="form-control" id="validationDefault03" required>
+            </div>
+            <div class="col-md-6">
+              <label for="validationDefault05" class="form-label">Province</label>
+              <input type="text" class="form-control" id="validationDefault05" required>
+            </div>
+            <div class="col-md-12">
+              <label for="validationDefault05" class="form-label">Phone Number</label>
+              <input type="text" class="form-control" id="validationDefault05" required>
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                <label class="form-check-label" for="invalidCheck2">
+                  Agree to terms and conditions
+                </label>
+              </div>
+            </div>
+          </form>
+        <button type="button" class="btn btn-outline-secondary login">SignUp</button>
+
+    </div>
+    <h4>Or SignUp with</h4>
+    <div class="icon">
+        <a href="#"><i class="fa-brands fa-google"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+    <div class="signup">
+        <h4>Already have an Account?</h4>
+        <button (click)="login()" type="button" class="btn btn-outline-secondary" mat-dialog-close>LogIn</button>
+    </div>
+
+</div>
